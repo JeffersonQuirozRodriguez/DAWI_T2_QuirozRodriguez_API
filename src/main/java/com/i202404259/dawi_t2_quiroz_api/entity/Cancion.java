@@ -1,5 +1,6 @@
 package com.i202404259.dawi_t2_quiroz_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -29,6 +30,7 @@ public class Cancion {
 
     @ManyToOne
     @JoinColumn(name = "id_artista", nullable = false)
+    @JsonBackReference
     private Artista artista;
 
     public Integer getIdCancion() {

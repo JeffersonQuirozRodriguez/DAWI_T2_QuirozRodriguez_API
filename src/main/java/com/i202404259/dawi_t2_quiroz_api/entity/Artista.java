@@ -1,11 +1,13 @@
 package com.i202404259.dawi_t2_quiroz_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.List;
 @Entity
 @Table(name = "artista")
+
 public class Artista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +26,7 @@ public class Artista {
     @Column(name = "fecha_debut")
     private LocalDate fechaDebut;
     @OneToMany(mappedBy = "artista", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Cancion> canciones;
 
     public Integer getIdArtista() {
